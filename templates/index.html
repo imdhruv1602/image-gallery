@@ -1,265 +1,187 @@
-/* Image Gallery whole CSS */
+<!DOCTYPE html>
+<html lang="en">
 
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    background-color: #212529;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-#toggle-dark{
-    color: #adb5bd;
-    margin-right: 13px;
-}
-
-#login{
-    color: #adb5bd;
-    padding-right: 30px;
-    justify-content: center;
-    align-items: center;
-}
-
-#login:hover{
-    color: white;
-    transition: all .3s ease-in-out ;
-}
-
-.list-btn{
-    margin-left: 13px;
-}
-
-.toggle{
-    text-align: right;
-    padding-right: 15px;
-}
-
-#toggle-dark:hover{
-    color: white;
-    transition: all .3s ease-in-out ;
-}
-
-#git{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.tooltip {
-    position: absolute;
-    display: none;
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    border: 1px solid white;
-    border-radius: 12px;
-    margin-top: 10px;
-    font-family: 'Poppins';
-    font-size: 13px;
-}
-
-.github-link:hover .tooltip {
-    display: block;
-}
-
-#git:hover{
-    color: white;
-    transition: all .3s ease-in-out ;
-}
-
-.logo p {
-    font-family: 'kaushan Script', sans-serif;
-    font-weight: bolder;
-    font-size: 35px;
-    color: #f8f9fa;
-    padding-left: 80px;
-    padding-bottom: 10px;
-    align-items: center;
-    padding-top: 10px;
-    cursor: pointer;
-}
-
-nav li {
-    display: inline-block;
-    padding: 12px 20px 20px 0;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: #adb5bd;
-}
-
-.header {
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #712cf9;
-
-}
-
-nav .list {
-    cursor: pointer;
-}
-
-nav .list:hover{
-    color: #dee2e6;
-    transition: all .3s ease-in-out;
-}
-
-nav {
-    text-align: center;
-    background-color: #712cf9;
-}
-
-.product {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.product .itemBox.hide {
-    display: none;
-}
-
-.product .itemBox {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    margin: 20px;
-    display: block;
-}
-
-.product .itemBox img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    border: 3px solid #dee2e6;;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.list-btn{
-    display: none;
-    cursor: pointer;
-    color: white;
-}
-
-.gototop {
-    position: fixed;
-    bottom: 10px;
-    left: 1460px;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 50px;
-    background-color: #2196F3;
-}
-
-.gototop:hover {
-    background-color: rgb(222, 124, 206);
-}
-
-.active {
-    color: #fff;
-    font-size: x-large;
-}
-
-.gototop {
-    position: fixed;
-    bottom: 50px;
-    right: 100px;
-    left: 50px;
-    cursor: pointer;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha384-xxsD2lAku97pLwnul7vH9RvTjaKd1N6wlMgry7mRbrUGidGQc0AqdLElKnEaCldC"
+        crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="static/css/gallery.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Image Gallery</title>
 
 
-.itemBox {
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
+</head>
 
-}
+<body>
+    <header class="header">
+        <li class="list-btn"><i class="bi bi-x-lg"></i></li>
+        <div class="logo">
+            <p>Image Gallery</p>
+        </div>
+        <nav class="navbar-l">
+            <ul class="center-list">
+                <li class="list active" data-filter="all">All</li>
+                <li class="list" data-filter="camera">Camera</li>
+                <li class="list" data-filter="headphone">Headphone</li>
+                <li class="list" data-filter="smartphone">Smartphone</li>
+                <li class="list" data-filter="shoe">Shoes</li>
+                <li class="list" data-filter="watch">Watch</li>
+            </ul>
+            <ul>
+                <div class="dropdown-menu">
+                    <li class="list active" data-filter="all">All</li>
+                    <li class="list" data-filter="camera">Camera</li>
+                    <li class="list" data-filter="headphone">Headphone</li>
+                    <li class="list" data-filter="smartphone">Smartphone</li>
+                    <li class="list" data-filter="shoe">Shoes</li>
+                    <li class="list" data-filter="watch">Watch</li>
+                </div>
+            </ul>
 
-.itemBox[data-item]:not([data-item="all"]) {
-    opacity: 0;
-    pointer-events: none;
-    display: none;
-    animation: zoomInAnimation 0.5s ease both;
-}
+        </nav>
+        <nav>
+            <a href="login"><i class='bx bxs-user' id="login"></i></a>
+            <i class="bi bi-moon-stars-fill" id="toggle-dark"></i>
+            <a href="https://github.com/GoofyExploit" target="_blank" class="github-link" style="color: #adb5bd;"><span
+                    class="tooltip">GitHub</span><i class="bi bi-github" id="git"></i></a>
+        </nav>
 
-@keyframes zoomInAnimation {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
+    </header>
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+    <div class="product">
+        <a href="static/css/mobile1.jpg">
+            <div class="itemBox" data-item="smartphone"><img src="static/css/mobile1.jpg" alt="mobile1"></div>
+        </a>
+        <a href="static/css/camera2.jpg">
+            <div class="itemBox" data-item="camera"><img src="static/css/camera2.jpg" alt="camera2"></div>
+        </a>
+        <a href="static/css/mobile4.jpg">
+            <div class="itemBox" data-item="smartphone"><img src="static/css/mobile4.jpg" alt="mobile4"></div>
+        </a>
+        <a href="static/css/camera1.jpg">
+            <div class="itemBox" data-item="camera"><img src="static/css/camera1.jpg" alt="camera1"></div>
+        </a>
+        <a href="static/css/mobile2.jpg">
+            <div class="itemBox" data-item="smartphone"><img src="static/css/mobile2.jpg" alt="mobile2"></div>
+        </a>
+        <a href="static/css/headphone1.jpg">
+            <div class="itemBox" data-item="headphone"><img src="static/css/headphone1.jpg" alt="headphone1"></div>
+        </a>
+        <a href="static/css/camera3.jpg">
+            <div class="itemBox" data-item="camera"><img src="static/css/camera3.jpg" alt="camera3"></div>
+        </a>
+        <a href="static/css/headphone2.jpg">
+            <div class="itemBox" data-item="headphone"><img src="static/css/headphone2.jpg" alt="headphone2"></div>
+        </a>
+        <a href="static/css/mobile5.jpg">
+            <div class="itemBox" data-item="smartphone"><img src="static/css/mobile5.jpg" alt="mobile5"></div>
+        </a>
+        <a href="static/css/headphone4.jpg">
+            <div class="itemBox" data-item="headphone"><img src="static/css/headphone4.jpg" alt="headphone4"></div>
+        </a>
+        <a href="static/css/shoe1.jpg">
+            <div class="itemBox" data-item="shoe"><img src="static/css/shoe1.jpg" alt="shoe1"></div>
+        </a>
+        <a href="static/css/headphone3.jpg">
+            <div class="itemBox" data-item="headphone"><img src="static/css/headphone3.jpg" alt="headphone3"></div>
+        </a>
+        <a href="static/css/shoe3.jpg">
+            <div class="itemBox" data-item="shoe"><img src="static/css/shoe3.jpg" alt="shoe3"></div>
+        </a>
+        <a href="static/css/watch1.jpg">
+            <div class="itemBox" data-item="watch"><img src="static/css/watch1.jpg" alt="watch1"></div>
+        </a>
+        <a href="static/css/shoe2.jpg">
+            <div class="itemBox" data-item="shoe"><img src="static/css/shoe2.jpg" alt="shoe2"></div>
+        </a>
+        <a href="static/css/watch2.jpg">
+            <div class="itemBox" data-item="watch"><img src="static/css/watch2.jpg" alt="watch2"></div>
+        </a>
+        <a href="static/css/shoe4.jpg">
+            <div class="itemBox" data-item="shoe"><img src="static/css/shoe4.jpg" alt="shoe4"></div>
+        </a>
+        <a href="static/css/watch3.jpg">
+            <div class="itemBox" data-item="watch"><img src="static/css/watch3.jpg" alt="watch3"></div>
+        </a>
+        <a href="static/css/mobile3.jpg">
+            <div class="itemBox" data-item="smartphone"><img src="static/css/mobile3.jpg" alt="mobile3"></div>
+        </a>
+        <a href="static/css/watch4.jpg">
+            <div class="itemBox" data-item="watch"><img src="static/css/watch4.jpg" alt="watch4"></div>
+        </a>
+    </div>
 
-/* Dropdown-menu CSS */
+    <div class="gototop">
+        <a href="#"><i class="fa-solid fa-arrow-up fa-bounce"
+                style="color: black; width: 50px; height: 40px; margin-right: 50px;"></i></a>
+    </div>
 
-.dropdown-menu{
-    position: absolute;
-    right: 2rem;
-    top: 80px;
-    width: 300px;
-    background-color: #712cf9;
-    overflow: hidden;
-    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 2;
-    display: none;
-}
+    <script> 
+        const toggle = document.getElementById('toggle-dark');
+        const body = document.querySelector('body');
+        const images = document.querySelectorAll('.product .itemBox img');
 
-.dropdown-menu.open{
-    height: 0px;
-}
+        toggle.addEventListener('click', function () {
+            this.classList.toggle('bi-moon-stars-fill');
+            if (this.classList.toggle('bi-brightness-high-fill')) {
+                body.style.background = 'white';
+                body.style.color = '#212529';
+                body.style.transition = '.2s';
+                images.forEach(img => {
+                    img.style.borderColor = 'black';
+                });
+            } else {
+                body.style.background = '#212529';
+                body.style.color = 'black';
+                body.style.transition = '.2s';
+                images.forEach(img => {
+                    img.style.borderColor = '#dee2e6';
+                });
+            }
+        });
+    </script>
 
-.dropdown-menu li{
-    padding: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    <script>
+        const toggleBtn = document.querySelector('.list-btn');
+        const toggleBtnIcon = document.querySelector('.list-btn i');
+        const dropDownMenu = document.querySelector('.dropdown-menu');
 
-/* Image Gallery Responsive code */
+        toggleBtn.addEventListener('click', function () {
+            const isOpen = dropDownMenu.classList.toggle('open');
 
-@media (max-width: 1086px) {
-    .center-list{
-        display: none;
-    }
+            toggleBtnIcon.classList = isOpen
+                ? 'bi bi-list'
+                : 'bi bi-x-lg';
+        });
+    </script>
 
-    p{
-       text-align: center;
-    }
 
-    .list-btn{
-        display: block;
-        position: relative;
-        z-index: 3;
-    }
 
-}
+    <script src="{{url_for('static', filename='css/index.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.product a');
+    
+            images.forEach(function (image) {
+                image.setAttribute('data-lightbox', 'gallery');
+                image.setAttribute('data-title', image.querySelector('img').alt);
+            });
+    
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'disableScrolling': true
+            });
+        });
+    </script>
+</body>
 
-@media (max-width: 1086px) {
-    .dropdown-menu{
-        left: 2rem;
-        width: unset;
-        display: block;
-    }
-}
+</html>
