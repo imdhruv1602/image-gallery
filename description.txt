@@ -6,3 +6,4 @@ Project Goals:
 1. Visual Appeal: Our primary objective is to craft a visually stunning image gallery that showcases images in a captivating manner. Through the use of CSS styling techniques, we aim to create an aesthetically pleasing layout that enhances the viewing experience.
 2. Responsive Design: In today's multi-device world, responsiveness is key. We'll ensure that our image gallery adapts seamlessly to different screen sizes, from large desktop monitors to mobile devices, providing an optimal viewing experience for all users.
 3. Ease of Use: A user-friendly interface is essential for engaging visitors and encouraging exploration. We'll focus on intuitive navigation and clear presentation to make browsing through the gallery a seamless and enjoyable experience.
+4. Performance Optimization: Speed matters. We'll optimize our code and assets to minimize loading times, ensuring swift access to images and smooth transitions between pages.
