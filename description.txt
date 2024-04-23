@@ -4,3 +4,4 @@ Welcome to the world of web design and presentation! In this project, we'll dive
 
 Project Goals:
 1. Visual Appeal: Our primary objective is to craft a visually stunning image gallery that showcases images in a captivating manner. Through the use of CSS styling techniques, we aim to create an aesthetically pleasing layout that enhances the viewing experience.
+2. Responsive Design: In today's multi-device world, responsiveness is key. We'll ensure that our image gallery adapts seamlessly to different screen sizes, from large desktop monitors to mobile devices, providing an optimal viewing experience for all users.
